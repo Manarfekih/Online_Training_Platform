@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+service NotificationService {
+  rpc Ping (Empty) returns (Message);
+  rpc GetNotificationsByUser (UserId) returns (NotificationList);
+  rpc GetAllNotifications (Empty) returns (NotificationList);
+}
+
+message Empty {}
+
+message Message {
+  string response = 1;
+}
+
+message UserId {
+  int32 user_id = 1;
+}
+
+message Notification {
+  int32 id = 1;
+  int32 user_id = 2;
+  int32 course_id = 3;
+  string message = 4;
+  string created_at = 5;
+}
+
+message NotificationList {
+  repeated Notification notifications = 1;
+}

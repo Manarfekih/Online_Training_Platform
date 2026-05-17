@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+service EnrollmentService {
+  rpc EnrollUser (EnrollRequest) returns (EnrollmentResponse);
+  rpc GetEnrollment (EnrollmentId) returns (EnrollmentResponse);
+  rpc GetAllEnrollments (Empty) returns (EnrollmentList);
+  rpc DeleteEnrollment (EnrollmentId) returns (DeleteResponse);
+}
+
+message EnrollRequest {
+  int32 user_id = 1;
+  int32 course_id = 2;
+}
+
+message EnrollmentResponse {
+  int32 id = 1;
+  int32 user_id = 2;
+  int32 course_id = 3;
+}
+
+message EnrollmentId {
+  int32 id = 1;
+}
+
+message EnrollmentList {
+  repeated EnrollmentResponse enrollments = 1;
+}
+
+message DeleteResponse {
+  string message = 1;
+  bool success = 2;  
+}
+message Empty {}

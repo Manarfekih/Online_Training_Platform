@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+service UserService {
+  rpc CreateUser (UserRequest) returns (UserResponse);
+  rpc GetUser (UserId) returns (UserResponse);
+  rpc GetAllUsers (Empty) returns (UserList);
+  rpc UpdateUser (UpdateUserRequest) returns (UserResponse);
+  rpc DeleteUser (UserId) returns (DeleteResponse);
+  rpc SearchUsers (SearchRequest) returns (UserList);
+}
+
+message UserRequest {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+}
+
+message UpdateUserRequest {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  string password = 4;
+}
+
+message UserResponse {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message UserId {
+  int32 id = 1;
+}
+
+message SearchRequest {
+  string keyword = 1;
+}
+
+message UserList {
+  repeated UserResponse users = 1;
+}
+
+message DeleteResponse {
+  string message = 1;
+  bool success = 2;
+}
+
+message Empty {}

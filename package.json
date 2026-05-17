@@ -1,0 +1,22 @@
+{
+  "name": "online-training-platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:gateway": "npm --prefix api_gateway start",
+    "start:user": "npm --prefix user_service start",
+    "start:course": "npm --prefix course_service start",
+    "start:enrollment": "npm --prefix enrollment_service start",
+    "start:notification": "npm --prefix notification_service start",
+    "start:all": "concurrently -n gateway,user,course,enrollment,notification -c blue,green,yellow,magenta,cyan \"npm run start:gateway\" \"npm run start:user\" \"npm run start:course\" \"npm run start:enrollment\" \"npm run start:notification\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
+}

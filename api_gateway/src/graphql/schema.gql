@@ -1,0 +1,52 @@
+type User {
+  id: Int!
+  name: String!
+  email: String!
+}
+
+type Course {
+  id: Int!
+  title: String!
+  description: String!
+  category: String!
+}
+
+type Enrollment {
+  id: Int!
+  user_id: Int!
+  course_id: Int!
+}
+
+
+type Query {
+
+  # User queries
+  users: [User!]!
+  user(id: Int!): User
+  searchUsers(keyword: String!): [User!]!
+  
+  # Course queries
+  courses: [Course!]!
+  course(id: Int!): Course
+  searchCourses(keyword: String!): [Course!]!
+  
+  # Enrollment queries
+  enrollments: [Enrollment!]!
+  enrollment(id: Int!): Enrollment
+}
+
+
+type Mutation {
+  # User mutations
+  createUser(name: String!, email: String!, password: String!): User!
+  updateUser(id: Int!, name: String, email: String, password: String): User!
+  deleteUser(id: Int!): String!
+  
+  # Course mutations
+  createCourse(title: String!, description: String!, category: String!): Course!
+  updateCourse(id: Int!, title: String, description: String, category: String): Course!
+  deleteCourse(id: Int!): String!
+  
+  # Enrollment mutations
+  createEnrollment(user_id: Int!, course_id: Int!): Enrollment!
+}
