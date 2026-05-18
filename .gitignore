@@ -38,11 +38,6 @@ kafka-logs/
 zookeeper-data/
 *.pid
 
-# =====================
-# PostgreSQL dumps (if any)
-# =====================
-*.sql
-*.dump
 
 # =====================
 # Coverage / testing
