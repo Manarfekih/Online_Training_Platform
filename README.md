@@ -237,16 +237,24 @@ Each microservice has its own database:
 Create the databases:
 
 CREATE DATABASE users_db;
+
 CREATE DATABASE courses_db;
+
 CREATE DATABASE enrollments_db;
+
 CREATE DATABASE notifications_db;
+
 
 Import schemas:
 
 psql -U postgres -d users_db -f database/users_db.sql
+
 psql -U postgres -d courses_db -f database/courses_db.sql
+
 psql -U postgres -d enrollments_db -f database/enrollments_db.sql
+
 psql -U postgres -d notifications_db -f database/notifications_db.sql
+
 
 ---
 
